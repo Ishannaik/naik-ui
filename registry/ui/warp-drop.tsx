@@ -1,0 +1,6 @@
+'use client'
+import { useRef, useState } from 'react'
+import { cn } from '@/lib/utils'
+type WarpDropProps = { onFiles: (files: File[]) => void; className?: string }
+export function WarpDrop({ onFiles, className }: WarpDropProps) { const input=useRef<HTMLInputElement>(null);const [dragging,setDragging]=useState(false);const accept=(files:FileList|null)=>{if(files?.length)onFiles(Array.from(files))};return <div className={cn('relative border border-dashed border-line p-8 text-center transition-colors',dragging&&'border-accent bg-accent/10',className)} style={{borderRadius:'var(--radius)'}} onDragEnter={e=>{e.preventDefault();setDragging(true)}} onDragOver={e=>e.preventDefault()} onDragLeave={()=>setDragging(false)} onDrop={e=>{e.preventDefault();setDragging(false);accept(e.dataTransfer.files)}} onClick={()=>input.current?.click()} onKeyDown={e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();input.current?.click()}}} role="button" tabIndex={0} aria-label="Upload files"><input ref={input} type="file" multiple className="sr-only" onChange={e=>accept(e.target.files)} /><p className="font-display text-lg">{dragging?'Release to warp files':'Drop files into the foundry'}</p><p className="mt-1 text-xs text-fg-dim">or choose from your device</p></div>}
+export function Preview(){return <WarpDrop onFiles={()=>undefined}/>} 

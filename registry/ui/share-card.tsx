@@ -1,0 +1,4 @@
+import { cn } from '@/lib/utils'
+type ShareCardProps = { name: string; score: number; kicker?: string; className?: string }
+export function ShareCard({ name, score, kicker = 'Foundry score', className }: ShareCardProps) { return <article className={cn('border border-line bg-bg-2 p-5', className)} style={{ borderRadius:'var(--radius)' }}><div className="flex items-start justify-between"><span className="font-mono text-[10px] uppercase tracking-widest text-accent">{kicker}</span><span className="font-mono text-xs text-fg-dim">NAIK / 24</span></div><h3 className="mt-7 font-display text-2xl">{name}</h3><div className="mt-4 flex items-end gap-2"><span className="font-mono text-4xl tabular text-accent">{score}</span><span className="pb-1 text-sm text-fg-dim">/ 100</span></div></article> }
+export function Preview() { return <ShareCard name="Ishan · Mumbai" score={92} kicker="Monsoon readiness" /> }

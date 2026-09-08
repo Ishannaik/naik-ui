@@ -1,0 +1,6 @@
+'use client'
+import { ChevronDown } from 'lucide-react'
+import * as Select from '@radix-ui/react-select'
+export type SelectOption = { value: string; label: string }
+export function SimpleSelect({ options, value, onChange, placeholder = 'Select an option' }: { options: SelectOption[]; value?: string; onChange?: (value: string) => void; placeholder?: string }) { return <Select.Root value={value} onValueChange={onChange}><Select.Trigger aria-label={placeholder} className="flex min-w-40 items-center justify-between border border-[var(--line)] bg-[var(--bg-2)] px-3 py-2 text-sm text-[var(--fg)]"><Select.Value placeholder={placeholder} /><Select.Icon><ChevronDown size={15} /></Select.Icon></Select.Trigger><Select.Portal><Select.Content className="z-50 border border-[var(--line)] bg-[var(--bg-2)] p-1 text-sm text-[var(--fg)]"><Select.Viewport>{options.map((option) => <Select.Item key={option.value} value={option.value} className="cursor-pointer px-3 py-2 outline-none data-[highlighted]:bg-[var(--accent)] data-[highlighted]:text-[var(--accent-ink)]"><Select.ItemText>{option.label}</Select.ItemText></Select.Item>)}</Select.Viewport></Select.Content></Select.Portal></Select.Root> }
+export function Preview() { return <SimpleSelect options={[{ value: 'one', label: 'One' }, { value: 'two', label: 'Two' }]} placeholder="Choose" /> }

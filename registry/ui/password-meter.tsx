@@ -1,0 +1,4 @@
+import { cn } from '@/lib/utils'
+type PasswordMeterProps = { value: string; className?: string }
+export function PasswordMeter({ value, className }: PasswordMeterProps) { const score = Math.min(4, [value.length >= 8, /[A-Z]/.test(value), /\d/.test(value), /[^A-Za-z0-9]/.test(value)].filter(Boolean).length); const labels = ['Enter a password','Weak','Fair','Strong','Foundry grade']; return <div className={cn('space-y-2', className)} aria-label={`Password strength: ${labels[score]}`}><div className="grid grid-cols-4 gap-1">{[0,1,2,3].map(i => <span key={i} className="h-1.5" style={{ backgroundColor: i < score ? (score < 2 ? 'var(--danger)' : score < 4 ? 'var(--accent)' : 'var(--ok)') : 'var(--line)' }} />)}</div><span className="font-mono text-[10px] uppercase tracking-widest text-fg-dim">{labels[score]}</span></div> }
+export function Preview() { return <PasswordMeter value="monsoon!2047" /> }
