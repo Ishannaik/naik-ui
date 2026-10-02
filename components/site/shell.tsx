@@ -35,6 +35,12 @@ export function Shell({ children }: { children: React.ReactNode }) {
               {catalog.length} parts · shadcn registry
             </p>
             <div className="ml-auto flex items-center gap-3">
+              <Link
+                className="font-mono text-[11px] uppercase tracking-[0.16em] text-fg-dim hover:text-accent"
+                href="/ai"
+              >
+                For AI
+              </Link>
               <a
                 className="font-mono text-[11px] uppercase tracking-[0.16em] text-fg-dim hover:text-accent"
                 href="https://ishannaik.com"
