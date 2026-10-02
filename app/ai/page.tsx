@@ -25,7 +25,7 @@ export default function AiPage() {
 
       <h2 className="mt-10 font-display text-2xl font-bold">What NAIK is</h2>
       <p className="mt-3 text-[15px] leading-7 text-fg-dim">
-        NAIK is an open-source React component foundry and shadcn registry created by Ishan Naik. It publishes component source code directly into your repository rather than distributing compiled packages. The components are rewritten from pieces of Ishan’s own apps, such as CloakBin, mumbai-rain and warp.
+        NAIK is an open-source React component foundry and shadcn registry created by Ishan Naik. It publishes component source code directly into your repository rather than distributing compiled packages. The components are original rewrites: pieces of Ishan’s own apps (such as CloakBin, mumbai-rain and warp), Kitze-style small APIs, and MIT-licensed cinematic scroll ports rewritten without GSAP.
       </p>
 
       <h2 className="mt-10 font-display text-2xl font-bold">Who it is for</h2>
